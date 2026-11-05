@@ -1,0 +1,38 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "Библиотека для генерации HTML-форм на TypeScript",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SK0LX/react-urfu-project-81.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/SK0LX/react-urfu-project-81/issues"
+  },
+  "homepage": "https://github.com/SK0LX/react-urfu-project-81#readme",
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
