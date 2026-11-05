@@ -5,6 +5,7 @@ export type FormElement =
       kind: 'input' | 'textarea';
       name: string;
       label: string;
+      labelAttributes: HtmlAttributes;
       value: string;
       attributes: HtmlAttributes;
     }

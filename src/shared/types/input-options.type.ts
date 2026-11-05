@@ -1,5 +1,8 @@
-import type { HtmlAttributes } from './html-attributes.type.js';
+import type { AttributeValue, HtmlAttributes } from './html-attributes.type.js';
 
-export type InputOptions = HtmlAttributes & {
+export type InputOptions = {
+  [name: string]: AttributeValue | HtmlAttributes;
   as?: 'input' | 'textarea';
+  label?: string;
+  labelHtml?: HtmlAttributes;
 };

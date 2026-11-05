@@ -10,8 +10,8 @@ export class HtmlFormRenderer implements FormRenderer {
     const { url = '#', ...attributes } = options;
 
     return this.tagRenderer.render('form', {
-      action: url,
       method: 'post',
+      action: url,
       ...attributes,
     }, elements.map((element) => this.renderElement(element)).join(''));
   }
@@ -25,10 +25,10 @@ export class HtmlFormRenderer implements FormRenderer {
       });
     }
 
-    const { name, label, value, attributes } = element;
+    const { name, label, labelAttributes, value, attributes } = element;
     const labelTag = this.tagRenderer.render(
       'label',
-      { for: attributes.id ?? name },
+      { for: attributes.id ?? name, ...labelAttributes },
       escapeHtml(label),
     );
 

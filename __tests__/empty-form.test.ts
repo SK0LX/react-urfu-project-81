@@ -7,12 +7,12 @@ describe('HexletCode.formFor: empty form', () => {
   test('returns an empty form with default attributes when the callback adds no fields', () => {
     const form = HexletCode.formFor(template, {}, () => {});
 
-    expect(form).toBe('<form action="#" method="post"></form>');
+    expect(form).toBe('<form method="post" action="#"></form>');
   });
 
   test('uses the supplied URL as action and preserves the default post method', () => {
     const form = HexletCode.formFor(template, { url: '/users' }, () => {});
 
-    expect(form).toBe('<form action="/users" method="post"></form>');
+    expect(form).toBe('<form method="post" action="/users"></form>');
   });
 });

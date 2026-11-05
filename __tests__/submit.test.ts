@@ -32,6 +32,6 @@ describe('HexletCode.formFor: labels and submit', () => {
   test('renders a submit control without a label', () => {
     const form = HexletCode.formFor({}, {}, (f) => f.submit());
 
-    expect(form).toBe('<form action="#" method="post"><input type="submit" value="Save"></form>');
+    expect(form).toBe('<form method="post" action="#"><input type="submit" value="Save"></form>');
   });
 });
