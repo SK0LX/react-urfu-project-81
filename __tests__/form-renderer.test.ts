@@ -15,5 +15,5 @@ test('accepts a replacement tag renderer through its interface', () => {
   const renderer: FormRenderer = new HtmlFormRenderer(tagRenderer);
   builder.input('name');
 
-  expect(renderer.render(builder.getElements(), {})).toBe('[form:[label:Name][input:]]');
+  expect(renderer.render(builder.getElements(), {})).toBe('[form:[input:]]');
 });

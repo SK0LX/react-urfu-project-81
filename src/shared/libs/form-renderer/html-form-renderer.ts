@@ -26,14 +26,8 @@ export class HtmlFormRenderer implements FormRenderer {
     }
 
     const { name, value, attributes } = element;
-    const labelText = name.charAt(0).toUpperCase() + name.slice(1);
-    const label = this.tagRenderer.render(
-      'label',
-      { for: attributes.id ?? name },
-      escapeHtml(labelText),
-    );
 
-    const control = element.kind === 'textarea'
+    return element.kind === 'textarea'
       ? this.tagRenderer.render('textarea', {
         cols: 20,
         rows: 40,
@@ -46,7 +40,5 @@ export class HtmlFormRenderer implements FormRenderer {
         value,
         ...attributes,
       });
-
-    return label + control;
   }
 }
