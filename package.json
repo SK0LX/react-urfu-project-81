@@ -40,7 +40,10 @@
     "node": ">=24"
   },
   "overrides": {
-    "minimatch": "^11.0.1"
+    "minimatch": "^11.0.1",
+    "ajv": {
+      "uri-js": "npm:fast-uri@4.2.3"
+    }
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
