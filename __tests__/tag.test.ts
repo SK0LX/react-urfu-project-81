@@ -1,6 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { Tag } from '../src/index.js';
-import { HtmlTagRenderer } from '../src/shared/libs/tag-renderer/index.js';
+import { HtmlTagRenderer, Tag } from '../src/shared/libs/tag-renderer/index.js';
 
 describe('Tag', () => {
   test.each([
