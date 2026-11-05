@@ -15,8 +15,12 @@
   ],
   "scripts": {
     "build": "tsc",
-    "typecheck": "tsc --noEmit",
-    "test": "npm run build && node --test tests/*.test.mjs",
+    "typecheck": "tsc --project tsconfig.test.json",
+    "lint": "eslint . --max-warnings=0",
+    "lint-fix": "npm run lint -- --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test-coverage": "vitest run --coverage",
     "example": "npm run build && node examples/basic.mjs",
     "prepare": "npm run build"
   },
@@ -32,7 +36,20 @@
     "url": "https://github.com/SK0LX/react-urfu-project-81/issues"
   },
   "homepage": "https://github.com/SK0LX/react-urfu-project-81#readme",
+  "engines": {
+    "node": ">=24"
+  },
+  "overrides": {
+    "minimatch": "^11.0.1"
+  },
   "devDependencies": {
-    "typescript": "^7.0.2"
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.2",
+    "@vitest/coverage-v8": "^5.1.0",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "typescript": "~6.0.0",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.1.0"
   }
 }
