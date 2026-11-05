@@ -20,6 +20,7 @@ export class DefaultFormBuilder<T extends object> implements FormBuilder<T> {
     this.elements.push({
       kind: as,
       name,
+      label: name.charAt(0).toUpperCase() + name.slice(1),
       value: String(this.template[name] ?? ''),
       attributes,
     });

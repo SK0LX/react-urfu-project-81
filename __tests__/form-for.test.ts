@@ -27,12 +27,13 @@ describe('HexletCode.formFor', () => {
       .toBe('<form action="/profiles" method="post"></form>');
   });
 
-  test('overrides input attributes and accepts a custom id', () => {
+  test('overrides input attributes and connects its label to a custom id', () => {
     const form = HexletCode.formFor({ email: 'rob@example.com' }, {}, (f) => {
       f.input('email', { type: 'email', id: 'user-email', required: true, disabled: false });
     });
 
     expect(form).toBe('<form action="#" method="post">'
+      + '<label for="user-email">Email</label>'
       + '<input name="email" type="email" value="rob@example.com" id="user-email" required>'
       + '</form>');
   });
@@ -43,6 +44,7 @@ describe('HexletCode.formFor', () => {
     });
 
     expect(form).toBe('<form action="#" method="post">'
+      + '<label for="bio">Bio</label>'
       + '<textarea cols="50" rows="5" name="bio" class="bio">Hello</textarea>'
       + '</form>');
   });
@@ -57,7 +59,9 @@ describe('HexletCode.formFor', () => {
     });
 
     expect(form).toBe(`<form action="/users?q=${escaped}" method="post">`
+      + '<label for="&lt;field&gt;">&lt;field&gt;</label>'
       + `<input name="&lt;field&gt;" type="text" value="${escaped}" title="${escaped}">`
+      + '<label for="bio">Bio</label>'
       + `<textarea cols="20" rows="40" name="bio">${escaped}</textarea>`
       + `<input type="submit" value="${escaped}">`
       + '</form>');
@@ -73,6 +77,7 @@ describe('HexletCode.formFor', () => {
     const form = HexletCode.formFor({ value }, {}, (f) => f.input('value'));
 
     expect(form).toBe('<form action="#" method="post">'
+      + '<label for="value">Value</label>'
       + `<input name="value" type="text" value="${rendered}">`
       + '</form>');
   });
@@ -121,6 +126,7 @@ describe('HexletCode.formFor', () => {
     });
 
     expect(form).toBe('<form action="/users" method="get">'
+      + '<label for="job">Job</label>'
       + '<textarea cols="20" rows="5" name="job">hexlet</textarea>'
       + '<input type="submit" value="Save" class="button">'
       + '</form>');
@@ -139,9 +145,11 @@ describe('HexletCode.formFor', () => {
     });
 
     expect(inner).toBe('<form action="#" method="post">'
+      + '<label for="job">Job</label>'
       + '<input name="job" type="text" value="hexlet">'
       + '</form>');
     expect(outer).toBe('<form action="#" method="post">'
+      + '<label for="name">Name</label>'
       + '<input name="name" type="text" value="rob">'
       + '<input type="submit" value="Save">'
       + '</form>');
